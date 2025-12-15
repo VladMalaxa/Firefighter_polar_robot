@@ -7,7 +7,8 @@ q1 = sym('q1',[length(q0_1) 1]);        % Create the vector q with length(q0) sy
 q2 = sym('q2',[length(q0_2) 1]);        % Create the vector q with length(q0) symbolic parameters   
 dq_1 = sym('dq1',[length(q0_1) 1]);      % Create the vector dq with length(q0) symbolic parameters  
 dq_2 = sym('dq2',[length(q0_2) 1]);      % Create the vector dq with length(q0) symbolic parameters  
-
+ddq_1 = sym('ddq1',[length(q0_1) 1]);
+ddq_2 = sym('ddq2',[length(q0_1) 1]);
 syms t                              % Symbolic expression for time
 
 %variables
@@ -18,6 +19,9 @@ m1 = 1;
 m2 = 1;
 alpha = 1;
 g = 1;
+q = [q1;q2];
+dq = [dq_1,dq_2];
+ddq = [ddq_1 ; ddq_2];
 %M(q)
 M = [l1 + l2 + (l_c1^2)*m1 + m2*(q2); 0;
     0; m2 ];
@@ -31,3 +35,5 @@ G = [g*cos(alpha-q1)*(l_c1*m1 + m2*q2);
 %p_e(q)
 p_e = [q2*cos(q1);
         q2*sin(q1)]; 
+
+%M*ddq + c + G = eye(2)*u;
