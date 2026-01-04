@@ -35,5 +35,5 @@ G = [g*cos(alpha-q1)*(l_c1*m1 + m2*q2);
 %p_e(q)
 p_e = [q2*cos(q1);
         q2*sin(q1)]; 
-
+%Jacobian
 %M*ddq + c + G = eye(2)*u;
