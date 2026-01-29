@@ -18,8 +18,8 @@ S = eye(2);
 
 % --- Control Gains (Tuned for Stability) ---
 
-kp = [50 0 ;0 90];
-kd =[50 0;0 30];
+kp = [1000 0 ;0 980];
+kd =[350 0;0 370];
 
 % % Rotation Joint (q1)
 % Kp1 = 500; 
