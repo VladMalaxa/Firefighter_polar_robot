@@ -18,9 +18,13 @@ S = eye(2);
 
 % --- Control Gains (Tuned for Stability) ---
 
-kp = [1000 0 ;0 980];
-kd =[350 0;0 370];
+%kp = [1000 0 ;0 980];
+%kd =[350 0;0 370];
+kp = [1.78 0;
+      0    1.04];
 
+kd = [7.92 0;
+      0    4.61];
 % % Rotation Joint (q1)
 % Kp1 = 500; 
 % Ki1 = 150;   % Small value to start
@@ -52,3 +56,4 @@ open('PD_grav.slx'); SIMNL = sim('PD_grav.slx');
 % position mark
 x = 0;
 y = 0;
+

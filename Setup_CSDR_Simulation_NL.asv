@@ -18,8 +18,8 @@ S = eye(2);
 
 % --- Control Gains (Tuned for Stability) ---
 
-kp = [850 0 ;0 390];
-kd =[850 0;0 330];
+kp = [1000 0 ;0 980];
+kd =[350 0;0 370];
 
 % % Rotation Joint (q1)
 % Kp1 = 500; 
@@ -52,3 +52,15 @@ open('PD_grav.slx'); SIMNL = sim('PD_grav.slx');
 % position mark
 x = 0;
 y = 0;
+
+qnom1 = 0.204;
+qnom2 = 0.928;
+
+m11nom = I1 + I2 + (l_c1^2)*m1 + m2*(qnom2^2);
+%m22nom = m2;
+%rise time = 1.8/wn
+zeta = 0.8;
+rise_t = 5;
+wn = 1.8/rise_t;
+Kp = [(wn*wn)*m11nom 0;0 2*zeta*wn*m2];
+Kd = [(wn*wn)*m11nom 0;0 2*zeta*wn*m2];
